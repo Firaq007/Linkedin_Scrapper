@@ -1,0 +1,34 @@
+{
+  "name": "LinkedIn scrapper",
+  "description": "Scrappes basic list of connections list",
+  "version": "0.1.7",
+  "manifest_version": 2,
+  "permissions": ["activeTab",
+    "tabs",
+    "webRequest",
+    "<all_urls>",
+    "https://ssl.google-analytics.com/*",
+    "scripting"
+  ],
+  "browser_action": {
+    "default_title": "Linkedin scraper for recruiters",
+    "default_popup": "popup.html"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "content_scripts": [{
+    "matches": ["https://www.linkedin.com/*", "https://www.linkedin.com/hiring/jobs/*"],
+    "js": ["jquery-3.1.0.min.js", "content.js", "content-test.js"]
+  }],
+  "icons": {
+    "16": "pokeball16.png",
+    "32": "pokeball32.png",
+    "64": "pokeball64.png",
+    "128": "pokeball128.png"
+  }
+}
